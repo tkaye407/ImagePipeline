@@ -6,7 +6,7 @@ import glob, os
 
 size = 128
 width = size * size * 3
-data_chunk = 2000
+data_chunk = 100
 
 files = []
 num = 0
@@ -40,6 +40,7 @@ for file in files_1:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
@@ -65,6 +66,7 @@ for file in files_2:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
@@ -90,6 +92,7 @@ for file in files_3:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
@@ -115,6 +118,7 @@ for file in files_4:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
@@ -140,6 +144,7 @@ for file in files_5:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
@@ -165,11 +170,12 @@ for file in files_6:
 	data_1 = np.vstack([data_1, arr])
 	label_1.append(file[0])
 	num += 1
+	os.remove(file)
 	if num % 100 == 0: 
 		print num
 print data_1.shape
 os.chdir(orig_cwd + "/apples-batches-python")
-dictA = {"data": data_6, "labels": label_6}
+dictA = {"data": data_1, "labels": label_1}
 fn = "test_batch"
 with open(fn, "wb") as f:
 	pickle.dump(dictA, f)
